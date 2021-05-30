@@ -30,3 +30,5 @@ Ordenações:
 - Ordem alfabética.
 
 No login poderá optar por usar o backend ou usar um Third-party.
+
+A ideia será criar um pull request nesse repositório para ser avaliado.
