@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "690484814945",
+    "project_id": "diletta-store",
+    "storage_bucket": "diletta-store.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:690484814945:android:42afa5ed7550e2aafc7620",
+        "android_client_info": {
+          "package_name": "com.diletta.store.diletta_store"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAjUA3Y7F1QIcKI-bzBuLBLr438evNPMlE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
