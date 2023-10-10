@@ -1,0 +1,17 @@
+import 'package:shample_app/src/domain/models/product.dart';
+
+abstract class ProductState {
+  List<Product> products;
+
+  ProductState({
+    required this.products,
+  });
+}
+
+class ProductInitialState extends ProductState {
+  ProductInitialState() : super(products: []);
+}
+
+class ProductSuccessState extends ProductState {
+  ProductSuccessState({ required List<Product> products}) : super(products: products);
+}

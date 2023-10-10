@@ -1,34 +1,32 @@
-# Diletta Flutter Test
+<div style="color: white; padding: 25px;">
+  <p style="font-size: 25px; font-weight: bold;" align="center">Shample App</p>
+  <p align="center">Shop + Example</>
+  <div align="center">
+    <a href="">Resumo</a> •
+    <a href="">Protótipo</a> •
+    <a href="">Collection</a> •
+    <a href="">Observação</a>
+  </div>
+</div>
 
-Desafio técnico - Flutter
+## Resumo
 
-Desafio:
-Essa é uma vaga para desenvolvedor Flutter (Mobile), e pensamos em um teste simples para avaliar o desempenho na stack.
-A ideia desse desafio é criar uma aplicação de listagem e manipulação de produtos, um carrinho.
+Projeto em desenvolvimento utilizando Flutter. Durante o processo de estruturação, foi utilizado para navegação o `GoRouter`, para gerenciamento de estado o `Bloc` e consumação de API o `Dio`.
 
-Na escolha do backend também deixaremos livre, os dados podem ser adquiridos de uma API free, ou mesmo podem ser adicionados via https://mockapi.io/
+## Protótipo
+Como parte do processo que estou habituado, foi desenvolvido um protótipo com base na necessidade, isso, para que fosse seguido durante o desenvolvimento.
+A plataforma escolhida para esse trabalho foi o `FIGMA`, a seguir há o link de acesso do mesmo para visualização.
 
-Componentes:
-Tela de Login.
-Liberado! Aqui você pode fazer como bem entender! Pode-se autenticar com email/senha ou social media login, tipo Google, Facebook, etc...
-Tela de listagem com produtos disponiveis, use sua criatividade.
-Faça a listagem como bem entender, traga os produtos do backend via API
-Criar uma wishlist baseada nessa lista de produtos.
-Basicamente é adicionar alguns produtos nessa lista de desejos. Você tem autonomia no design, pode colocar em duas telas, uma página à parte, você é o dono da aplicação.
+[[LINK] Shample App - Protótipo](https://www.figma.com/file/QBJrOl9XF44U0mAFIc2Kx9/Flutter-Test?type=design&node-id=0%3A1&mode=design&t=urDQVpoSUjhJjeMU-1)
 
-Regras de Negócio:
-Cada usuário poderá criar sua própria wishlist.
-Utilize algo para gerenciar o estado, damos preferência a utilização de Provider e BloC, mas você é livre para escolher qual você prefere.
-A wishlist poderá ser salva na memória interna do dispositivo - Persistência.
+![Figma Pic](readme_files/figmaexample.png)
 
-Filtros:
-- Palavra-chave.
-- Produto promocional ou não.
+## Collection
+Assim como o protótipo, tenho como costume o acompanhamento do ambiente, neste caso, da API que será consumida. Para isso, inseri em uma collection do `Postman` os endpoints do Mock em uso no projeto. Facilitando assim os testes e identificação de padrões e possíveis erros. 
 
-Ordenações:
-- Preço.
-- Ordem alfabética.
+[Collection](readme_files/ShampleApp.postman_collection.json)
 
-No login poderá optar por usar o backend ou usar um Third-party.
+![Postman Pic](readme_files/postmanexample.png)
 
-A ideia será criar um pull request nesse repositório para ser avaliado.
+## Observação
+> É interessante ressaltar que o projeto **não foi finalizado**
