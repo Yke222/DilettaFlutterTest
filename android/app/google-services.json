@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "273053387125",
+    "project_id": "dilettafluttertest",
+    "storage_bucket": "dilettafluttertest.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:273053387125:android:99b90524efe759d39bab3c",
+        "android_client_info": {
+          "package_name": "com.diletta_flutter_test.diletta_flutter_test"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "273053387125-mr15au4igk8ifur87033m4hrnubps3lk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.diletta_flutter_test.diletta_flutter_test",
+            "certificate_hash": "f2cd0e1ab7a79f495832d8a06af27c7168c6c31a"
+          }
+        },
+        {
+          "client_id": "273053387125-nc580nvj6h3emcg30p6aaeq79an3mv29.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAC9MBFWWNygYuVGziDPj1qZFGAyeFu1mQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "273053387125-nc580nvj6h3emcg30p6aaeq79an3mv29.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
