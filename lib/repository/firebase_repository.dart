@@ -1,5 +1,7 @@
 import 'dart:developer';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:diletta_flutter_test/models/user_model.dart';
 import 'package:diletta_flutter_test/repository/user_repository.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -7,6 +9,8 @@ class FirebaseRepository implements UserRepository {
   FirebaseRepository({FirebaseAuth? firebaseAuth})
       : _firebaseAuth = firebaseAuth ?? FirebaseAuth.instance;
   final FirebaseAuth _firebaseAuth;
+  final usersCollection = FirebaseFirestore.instance.collection('users');
+
   @override
   Future<void> sigIn(String email, String password) async {
     try {
@@ -19,9 +23,15 @@ class FirebaseRepository implements UserRepository {
   }
 
   @override
-  Future<void> sigUp(String email, String password) {
-    // TODO: implement sigUp
-    throw UnimplementedError();
+  Future<void> sigUp(final UserModel user, String password) async {
+    try {
+      await _firebaseAuth.createUserWithEmailAndPassword(
+          email: user.email, password: password);
+      _setUserData(user);
+    } catch (e) {
+      log(e.toString());
+      rethrow;
+    }
   }
 
   @override
@@ -41,5 +51,14 @@ class FirebaseRepository implements UserRepository {
       log('user: $user');
       return user;
     });
+  }
+
+  Future<void> _setUserData(UserModel user) async {
+    try {
+      await usersCollection.doc(user.id).set(UserModel.toMapJson(user));
+    } catch (e) {
+      log(e.toString());
+      rethrow;
+    }
   }
 }

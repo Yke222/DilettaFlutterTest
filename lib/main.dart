@@ -34,17 +34,21 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiRepositoryProvider(
-        providers: [
-          RepositoryProvider(
-              create: (_) => AuthenticationBloc(userRepo: userRepository)),
-        ],
-        child: BlocBuilder<AuthenticationBloc, AuthenticationState>(
+      providers: [
+        RepositoryProvider(
+            create: (_) => AuthenticationBloc(userRepo: userRepository)),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: BlocBuilder<AuthenticationBloc, AuthenticationState>(
           builder: ((context, state) {
             if (state.status == AuthenticationStatus.unauthenticated) {
-              return const MaterialApp(home: LoginScreen());
+              return const LoginScreen();
             }
-            return const MaterialApp(home: WelcomeScreen());
+            return const WelcomeScreen();
           }),
-        ));
+        ),
+      ),
+    );
   }
 }
