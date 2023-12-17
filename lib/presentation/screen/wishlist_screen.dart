@@ -1,10 +1,10 @@
-import 'package:diletta_flutter_test/core/local_storage_wishlist.dart';
+import 'package:diletta_flutter_test/presentation/blocs/products_bloc.dart';
+import 'package:diletta_flutter_test/domain/core/local_storage_wishlist.dart';
+import 'package:diletta_flutter_test/domain/models/products_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../blocs/products_bloc.dart';
 import '../component/product_tile.dart';
-import '../models/products_model.dart';
 
 class WishlistScreen extends StatelessWidget {
   const WishlistScreen({super.key});
@@ -27,6 +27,11 @@ class WishlistScreen extends StatelessWidget {
               productImage: product.image,
               price: product.price,
               isPromotional: product.isPromotional,
+              labelWishList: 'Desfavoritar',
+              onPressed: () {
+                context.read<ProductsBloc>().add(RemoveProductFromWishlistEvent(
+                    productToBeRemoved: product));
+              },
             );
           },
           separatorBuilder: (final context, final index) =>

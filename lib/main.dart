@@ -1,14 +1,15 @@
-import 'package:diletta_flutter_test/blocs/authentication_bloc_screen.dart';
-import 'package:diletta_flutter_test/dependency_injection.dart';
-import 'package:diletta_flutter_test/repository/firebase_repository.dart';
-import 'package:diletta_flutter_test/repository/user_repository.dart';
-import 'package:diletta_flutter_test/screen/login_screen.dart';
-import 'package:diletta_flutter_test/screen/welcome_screen.dart';
-import 'package:diletta_flutter_test/simple_bloc_observer.dart';
+import 'package:diletta_flutter_test/data/repository/user_repository.dart';
+import 'package:diletta_flutter_test/di/dependency_injection.dart';
+import 'package:diletta_flutter_test/presentation/blocs/authentication_bloc_screen.dart';
+import 'package:diletta_flutter_test/presentation/screen/login_screen.dart';
+import 'package:diletta_flutter_test/presentation/screen/welcome_screen.dart';
+import 'package:diletta_flutter_test/util/simple_bloc_observer.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'data/repository/firebase_repository.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

@@ -1,5 +1,5 @@
-import 'package:diletta_flutter_test/models/user_model.dart';
-import 'package:diletta_flutter_test/repository/user_repository.dart';
+import 'package:diletta_flutter_test/data/repository/user_repository.dart';
+import 'package:diletta_flutter_test/domain/models/user_model.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

@@ -1,6 +1,6 @@
-import 'package:diletta_flutter_test/blocs/products_bloc.dart';
-import 'package:diletta_flutter_test/component/product_tile.dart';
-import 'package:diletta_flutter_test/models/products_model.dart';
+import 'package:diletta_flutter_test/domain/models/products_model.dart';
+import 'package:diletta_flutter_test/presentation/blocs/products_bloc.dart';
+import 'package:diletta_flutter_test/presentation/component/product_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -38,15 +38,23 @@ class _ProductsScreenState extends State<ProductsScreen> {
           ),
         ),
         Row(
-          mainAxisAlignment: MainAxisAlignment.end,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
+            const Text(
+              'Ordenar por:',
+              style: TextStyle(
+                  color: Colors.orange,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600),
+            ),
+            const SizedBox(width: 130),
             IconButton(
               onPressed: () {
                 context.read<ProductsBloc>().add(
                     FilterByPromotionalProductsEvent(
                         products: widget.products));
               },
-              icon: Icon(
+              icon: const Icon(
                 Icons.local_offer,
                 color: Colors.orange,
               ),
@@ -91,8 +99,9 @@ class _ProductsScreenState extends State<ProductsScreen> {
                     productName: product.name,
                     productImage: product.image,
                     price: product.price,
+                    labelWishList: 'Favoritar',
                     isPromotional: product.isPromotional,
-                    onAddToWishlist: () {
+                    onPressed: () {
                       context.read<ProductsBloc>().add(
                           AddProductToWishlistEvent(productToBeAdd: product));
                     },

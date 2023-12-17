@@ -1,4 +1,4 @@
-import 'package:diletta_flutter_test/models/products_model.dart';
+import 'package:diletta_flutter_test/domain/models/products_model.dart';
 import 'package:shared_preferences/shared_preferences.dart' as sp;
 
 class LocalStorageWishlist{

@@ -1,5 +1,6 @@
-import 'package:diletta_flutter_test/models/user_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+
+import '../../domain/models/user_model.dart';
 
 abstract class UserRepository {
 

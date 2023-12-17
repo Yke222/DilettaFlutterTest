@@ -8,21 +8,20 @@ class ProductsUseCase {
         .toList();
   }
 
-  static  List<ProductModel> filterByPrice(List<ProductModel> products) {
+  static List<ProductModel> filterByPrice(List<ProductModel> products) {
     List<ProductModel> sortedProducts = List.from(products);
     sortedProducts.sort((a, b) => a.price.compareTo(b.price));
     return sortedProducts;
   }
 
-  static  List<ProductModel> filterByName(List<ProductModel> products) {
+  static List<ProductModel> filterByName(List<ProductModel> products) {
     List<ProductModel> sortedProducts = List.from(products);
     sortedProducts.sort((a, b) => a.name.compareTo(b.name));
     return sortedProducts;
   }
 
-  static  List<ProductModel> filterByPromotionalProducts(List<ProductModel> products) {
-    return products
-        .where((product) => product.isPromotional)
-        .toList();
+  static List<ProductModel> filterByPromotionalProducts(
+      List<ProductModel> products) {
+    return products.where((product) => product.isPromotional).toList();
   }
 }

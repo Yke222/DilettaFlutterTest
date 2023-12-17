@@ -1,5 +1,5 @@
-import 'package:diletta_flutter_test/screen/sign_in_screen.dart';
-import 'package:diletta_flutter_test/screen/sign_up_screen.dart';
+import 'package:diletta_flutter_test/presentation/screen/sign_in_screen.dart';
+import 'package:diletta_flutter_test/presentation/screen/sign_up_screen.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget {

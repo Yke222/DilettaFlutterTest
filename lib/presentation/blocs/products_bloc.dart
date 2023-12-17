@@ -1,12 +1,12 @@
 import 'dart:async';
 
-import 'package:diletta_flutter_test/core/local_storage_wishlist.dart';
-import 'package:diletta_flutter_test/core/products_use_case.dart';
-import 'package:diletta_flutter_test/repository/product_repository.dart';
+import 'package:diletta_flutter_test/domain/core/local_storage_wishlist.dart';
+import 'package:diletta_flutter_test/domain/core/products_use_case.dart';
+import 'package:diletta_flutter_test/data/repository/product_repository.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../models/products_model.dart';
+import '../../domain/models/products_model.dart';
 
 class ProductsBloc extends Bloc<ProductsEvent, ProductsState> {
   final ProductRepository _productRepository;
@@ -22,8 +22,6 @@ class ProductsBloc extends Bloc<ProductsEvent, ProductsState> {
       final List<ProductModel> productsList =
           await _productRepository.getProducts();
       productsController.add(productsList);
-      wishListProductsController.add([]);
-      print('listLength: ${productsList.length}');
       return emit(LoadedProductScreenState(products: productsList));
     });
     on<SearchProductsByNameEvent>((event, emit) {
@@ -33,7 +31,6 @@ class ProductsBloc extends Bloc<ProductsEvent, ProductsState> {
       if (state is LoadedProductScreenState) {
         if (name.isNotEmpty) {
           final searchByName = ProductsUseCase.searchByName(products, name);
-          print('searchByName: ${searchByName.length}');
           productsController.add(searchByName);
           return emit(state.copyWith(products: searchByName));
         }
@@ -44,7 +41,6 @@ class ProductsBloc extends Bloc<ProductsEvent, ProductsState> {
       final state = this.state;
       if (state is LoadedProductScreenState) {
         final filteredByPrice = ProductsUseCase.filterByPrice(products);
-        print('price: ${filteredByPrice.first.price}');
         productsController.add(filteredByPrice);
         return emit(state.copyWith(products: List.from(filteredByPrice)));
       }
@@ -70,19 +66,18 @@ class ProductsBloc extends Bloc<ProductsEvent, ProductsState> {
     });
     on<AddProductToWishlistEvent>((event, emit) {
       final product = event.productToBeAdd;
-      final state = this.state;
-      if (state is LoadedProductScreenState) {
+      if (!productsWishList.contains(product)) {
         productsWishList.add(product);
-        wishListProductsController.add(productsWishList);
-
         LocalStorageWishlist.setWishlistProduct(productsWishList);
-
-        print(
-            'onAddProductToWishlistEvent length82: ${productsWishList.length}');
-
-        return emit(LoadedProductScreenState(
-            products: LocalStorageWishlist.getPickupAnimationQueueList()));
       }
+    });
+    on<RemoveProductFromWishlistEvent>((event, emit) {
+      final productToBeRemoved = event.productToBeRemoved;
+      productsWishList
+          .removeWhere((product) => product.id == productToBeRemoved.id);
+      LocalStorageWishlist.setWishlistProduct(productsWishList);
+      wishListProductsController
+          .add(LocalStorageWishlist.getPickupAnimationQueueList());
     });
   }
 }
@@ -126,6 +121,11 @@ class AddProductToWishlistEvent extends ProductsEvent {
   const AddProductToWishlistEvent({required this.productToBeAdd});
 }
 
+class RemoveProductFromWishlistEvent extends ProductsEvent {
+  final ProductModel productToBeRemoved;
+  const RemoveProductFromWishlistEvent({required this.productToBeRemoved});
+}
+
 // States
 abstract class ProductsState extends Equatable {
   const ProductsState();
@@ -148,9 +148,3 @@ class LoadedProductScreenState extends ProductsState {
 class LoadedWishlistScreenState extends ProductsState {}
 
 class LoadingProductScreenState extends ProductsState {}
-
-class SearchProductsByNameState extends ProductsState {
-  final List<ProductModel> searchResults;
-
-  const SearchProductsByNameState({required this.searchResults});
-}

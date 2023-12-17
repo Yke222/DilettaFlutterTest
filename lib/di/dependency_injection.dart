@@ -1,6 +1,7 @@
-import 'package:diletta_flutter_test/core/local_storage_wishlist.dart';
-import 'package:diletta_flutter_test/repository/firebase_repository.dart';
-import 'package:diletta_flutter_test/repository/product_repository.dart';
+import 'package:diletta_flutter_test/data/repository/firebase_repository.dart';
+import 'package:diletta_flutter_test/data/repository/product_repository.dart';
+import 'package:diletta_flutter_test/domain/core/local_storage_wishlist.dart';
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:get_it/get_it.dart';
 

@@ -1,8 +1,8 @@
 import 'dart:convert';
 
-import 'package:diletta_flutter_test/models/products_model.dart';
-import 'package:diletta_flutter_test/service/environment_config.dart';
 import 'package:http/http.dart' as http;
+import '../../domain/models/products_model.dart';
+import '../service/environment_config.dart';
 
 class ProductRepository {
   Future<List<ProductModel>> getProducts() async {

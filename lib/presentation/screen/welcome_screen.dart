@@ -1,13 +1,13 @@
-import 'package:diletta_flutter_test/blocs/sign_in_bloc.dart';
-import 'package:diletta_flutter_test/repository/firebase_repository.dart';
-import 'package:diletta_flutter_test/screen/products_screen.dart';
-import 'package:diletta_flutter_test/screen/wishlist_screen.dart';
+import 'package:diletta_flutter_test/presentation/blocs/sign_in_bloc.dart';
+import 'package:diletta_flutter_test/data/repository/firebase_repository.dart';
+import 'package:diletta_flutter_test/presentation/screen/products_screen.dart';
+import 'package:diletta_flutter_test/presentation/screen/wishlist_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 
 import '../blocs/products_bloc.dart';
-import '../repository/product_repository.dart';
+import '../../data/repository/product_repository.dart';
 
 class WelcomeScreen extends StatefulWidget {
   const WelcomeScreen({super.key});
@@ -41,7 +41,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 const Text(
-                  'Welcome to Diletta Test App',
+                  'Bem vindo ao Diletta Teste App',
                   style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
@@ -78,13 +78,13 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                 Padding(
                     padding: EdgeInsets.all(12.0),
                     child: Text(
-                      'Products',
+                      'Produtos',
                       style: TextStyle(fontSize: 18),
                     )),
                 Padding(
                     padding: EdgeInsets.all(12.0),
                     child: Text(
-                      'Whishlist',
+                      'Favoritos',
                       style: TextStyle(fontSize: 18),
                     ))
               ],
@@ -99,12 +99,15 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                         (final BuildContext context,
                             final ProductsState state) {
                       if (state is LoadedProductScreenState) {
-                        return TabBarView(controller: tabController, children: [
-                          ProductsScreen(
-                            products: state.products,
-                          ),
-                          WishlistScreen(),
-                        ]);
+                        return TabBarView(
+                          controller: tabController,
+                          children: [
+                            ProductsScreen(
+                              products: state.products,
+                            ),
+                            const WishlistScreen(),
+                          ],
+                        );
                       }
                       return const Center(
                           child:

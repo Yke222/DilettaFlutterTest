@@ -1,8 +1,8 @@
 import 'dart:developer';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:diletta_flutter_test/models/user_model.dart';
-import 'package:diletta_flutter_test/repository/user_repository.dart';
+import 'package:diletta_flutter_test/data/repository/user_repository.dart';
+import 'package:diletta_flutter_test/domain/models/user_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class FirebaseRepository implements UserRepository {
@@ -26,7 +26,9 @@ class FirebaseRepository implements UserRepository {
   Future<void> sigUp(final UserModel user, String password) async {
     try {
       await _firebaseAuth.createUserWithEmailAndPassword(
-          email: user.email, password: password);
+        email: user.email,
+        password: password,
+      );
       _setUserData(user);
     } catch (e) {
       log(e.toString());
