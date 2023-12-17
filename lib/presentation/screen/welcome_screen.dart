@@ -90,7 +90,6 @@ class _WelcomeScreenState extends State<WelcomeScreen>
               ],
             ),
             Expanded(
-                // verify
                 child: BlocProvider<ProductsBloc>(
                     create: (final context) => ProductsBloc(
                         productRepository: GetIt.I<ProductRepository>())
