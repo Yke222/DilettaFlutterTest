@@ -1,6 +1,6 @@
 # Diletta Flutter Test
 
-#Implementação:
+## Implementação:
 - a versão utilizada foi o Flutter 3.10.6 e Dart 3.0.6
 - O Aplicativo foi organizado com **Clean Architecture** 
 - Injeção de dependencia com **GetIt**
@@ -10,7 +10,7 @@
 - Para o backend de produtos, foi utilizado a sugestão que estava na documentação com **https://mockapi.io/** e foi utilizado uma biblioteca simples *http* para trazer esses dados.
 - Tambem foi colocado um **BlocOberver** para acompanhar o comportamento dos blocs dentro da aplicac1a2o e facilitar o desenvolvimento
 
-#Visualização
+## Visualização
 - Quando o usuario entra no App ele se depara com uma *TabBar* com 2 abas **Entrar** e **Cadastrar**
   ![Cadastrar](readme_visualizacao/tab_cadastrar.png)
   ![Entrar](readme_visualizacao/tab_entrar.png)"
